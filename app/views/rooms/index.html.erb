@@ -1,15 +1,19 @@
-<div class='container'>
-    <h5> <%= current_user.email %> </h5>
-    <h4>Users</h4>
-    <%= turbo_stream_from "users" %>
-    <div id="users">
-     <%= render @users %>
+<div id='chatroom-container' class='row bg-dark text-light'>
+    <div id="side_panel" class="col-md-4 col-sm-4">
+        <h5> <%= current_user.email %> </h5>
+        <h4>Users</h4>
+        <%= turbo_stream_from "users" %>
+        <div id="users">
+        <%= render @users %>
+        </div>
+        <h4>Rooms</h4>
+        <%= turbo_stream_from "rooms" %>
+        <div>
+        <%= render @rooms %>
+        </div>
+        <%= render partial: "layouts/new_room_form" %>
     </div>
-    <h4>Rooms</h4>
-    <%= turbo_stream_from "rooms" %>
-    <div>
-    <%= render @rooms %>
+    <div id="room_container" class="col-md-8 col-sm-8 bg-dark text-light">
+        hi
     </div>
-    <%= render partial: "layouts/new_room_form" %>
-
 </div>
